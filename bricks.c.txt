@@ -1,0 +1,36 @@
+#include <stdio.h>
+
+int main() {
+int small, big, goal;
+int bigUsed, remaining;
+
+// Read inputs
+printf("Enter number of small bricks: ");
+scanf("%d", &small);
+
+printf("Enter number of big bricks: ");
+scanf("%d", &big);
+
+printf("Enter goal length: ");
+scanf("%d", &goal); // Fixed: added missing '%'
+
+// Calculate how many big bricks we could theoretically use
+bigUsed = goal / 5;
+
+// If we have fewer big bricks than needed, use all we have
+if (bigUsed > big) {
+bigUsed = big;
+}
+
+// Calculate remaining length after using big bricks
+remaining = goal - (bigUsed * 5);
+
+// Check if we have enough small bricks to cover the rest
+if (small >= remaining) {
+printf("TRUE\n");
+} else {
+printf("FALSE\n");
+}
+
+return 0;
+}
